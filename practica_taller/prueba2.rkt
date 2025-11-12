@@ -98,13 +98,9 @@
 
 ;ejercicio 12 - promedio de los numeros mayores a 5 en un valor dado usando map, filter y foldl
 (define (promedio-mayores-a-cinco lista)
-  (let* ((mayores (filter (lambda (x) (> x 5)) lista))
-         (suma (foldl + 0.0 mayores))
-         (cantidad (length mayores)))
-    (if (> cantidad 0)
-        (/ suma cantidad)
-        0.0)))    
+  (define mayores (filter (lambda (x) (> x 5)) lista))
+  (/ (foldl + 0.0 mayores) (length mayores)))
 
 (displayln "12. Promedio de los numeros mayores a 5 en un valor dado:")
 (displayln (exact->inexact (promedio-mayores-a-cinco '(3 6 8 10 4 9 2 7))))
-(newline)
+(newline)  
